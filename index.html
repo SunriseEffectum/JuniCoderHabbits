@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Habbit app</title>
+    <title>Habit app</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
       <div class="panel">
         <div class="sub__panel">
           <p>JuniCoder</p>
-          <p>Habbits</p>
+          <p>Habits</p>
           <img class="logo" src="./images/Logo.svg" alt="Logo">
           <nav class="menu">
             <div class="menu__list"></div>
@@ -53,30 +53,30 @@
       </div>
       <div class="cover cover_hidden">
         <div class="popup">
-          <h2>New habbit</h2>
+          <h2>New habit</h2>
           <div class="icon-label">Choose Icon</div>
           <div class="icon-select">
-            <button class="icon icon-active" name="sport" onclick="setIcon(this, 'sport')">
+            <button class="icon icon-active" name="dashboard" onclick="setIcon(this, 'dashboard')">
               <img src="./images/dashboard.svg" alt="dashboard">
             </button>
-            <button class="icon" name="water" onclick="setIcon(this, 'water')">
+            <button class="icon" name="fingerprint" onclick="setIcon(this, 'fingerprint')">
               <img src="./images/fingerprint.svg" alt="fingerprint">
             </button>
-            <button class="icon" name="food" onclick="setIcon(this, 'food')">
+            <button class="icon" name="bulb" onclick="setIcon(this, 'bulb')">
               <img src="./images/bulb.svg" alt="Bulb">
             </button>
-            <button class="icon" name="wi-fi" onclick="setIcon(this, 'food')">
-              <img src="./images/wifi-alt.svg" alt="Wi-fi">
+            <button class="icon" name="wi-fi" onclick="setIcon(this, 'wi-fi')">
+              <img src="./images/wi-fi.svg" alt="Wi-fi">
             </button>
-            <button class="icon" name="fork" onclick="setIcon(this, 'food')">
-              <img src="./images/code-fork.svg" alt="Fork">
+            <button class="icon" name="fork" onclick="setIcon(this, 'fork')">
+              <img src="./images/fork.svg" alt="Fork">
             </button>
             <button class="popup__close" onclick="changePopupSatate()">
               <img src="./images/close.svg" alt="Close">
             </button>
           </div>
           <form class="popup__form" onsubmit="addHabbit(event)">
-            <input type="text" name="name" placeholder="Habbit name">
+            <input type="text" name="name" placeholder="Habit name">
             <input typw="text" name="icon" hidden placeholder="Icon" value="sport">
             <input type="number" name="target" placeholder="Goal">
             <button class="button" type="submit">Add</button>
