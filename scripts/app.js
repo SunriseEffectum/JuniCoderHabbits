@@ -12,7 +12,7 @@ const page = {
         progressPercent: document.querySelector('.progress__percent'),
         progressCoverBar: document.querySelector('.progress__cover-bar')
     },
-    body: document.querySelector('.habbits__body'),
+    body: document.querySelector('.habits__body'),
     popup: document.querySelector('.cover')
 }
 
@@ -45,10 +45,10 @@ function rerenderMenu(activeHabit) {
     }
     document.querySelector('.menu__list').innerHTML = '';
     for (const habit of habits) {
-        const existed = document.querySelector(`[menu-habbit-id="${habit.id}"]`);
+        const existed = document.querySelector(`[menu-habit-id="${habit.id}"]`);
         if (!existed) {
             const element = document.createElement('button');
-            element.setAttribute('menu-habbit-id', habit.id);
+            element.setAttribute('menu-habit-id', habit.id);
             element.classList.add('menu__item');
             element.addEventListener('click', () => rerender(habit.id));
             element.innerHTML = `<img src="./images/${habit.icon}.svg" alt="${habit.name}">`;
@@ -86,13 +86,13 @@ function rerenderBody(activeHabit) {
     let dayCounter = 1;
     for (const day of activeHabit.days) {
         const habitElement = document.createElement('div');
-        habitElement.setAttribute('class', 'habbit');
+        habitElement.setAttribute('class', 'habit');
         habitElement.innerHTML = `
             <div class="day__container">
-                <div class="habbit__day">Day ${dayCounter}</div>
+                <div class="habit__day">Day ${dayCounter}</div>
             </div>
-            <div class="habbit__comment">${day.comment}</div>
-            <button class="habbit__delete" onclick="deleteDays(${dayCounter - 1})">
+            <div class="habit__comment">${day.comment}</div>
+            <button class="habit__delete" onclick="deleteDays(${dayCounter - 1})">
                 <img src="./images/trash.svg" alt="delete this day">
             </button>
         `;
@@ -100,12 +100,12 @@ function rerenderBody(activeHabit) {
         page.body.appendChild(habitElement);
     }
     const lastDay = document.createElement('div');
-    lastDay.setAttribute('class', 'habbit');
+    lastDay.setAttribute('class', 'habit');
     lastDay.innerHTML = `
         <div class="day__container">
-            <div class="habbit__day">Day ${dayCounter}</div>
+            <div class="habit__day">Day ${dayCounter}</div>
         </div>
-        <form class="habbit__form" onsubmit="addDays(event)">
+        <form class="habit__form" onsubmit="addDays(event)">
             <input name="comment" class="input_icon" type="text" placeholder="Comment">
             <img class="input__icon" src="./images/comment.svg" alt="Comment icon">
             <button class="button" type="submit">Ready</button>
@@ -186,7 +186,7 @@ function setIcon(context, icon) {
     context.classList.add('icon-active');
 }
 
-function addHabbit(event) {
+function addHabit(event) {
     const form = event.target;
     event.preventDefault();
     const data = new FormData(form);
@@ -239,8 +239,8 @@ function addHabbit(event) {
     }
     loadData();
     const hashId = Number(document.location.hash.replace('#', ''));
-    const urlHabbit = habits.find(habbit => habbit.id == hashId)
-    if (urlHabbit) rerender(urlHabbit.id);
+    const urlHabit = habits.find(habit => habit.id == hashId)
+    if (urlHabit) rerender(urlHabit.id);
     else rerender(habits[0].id);
     
     /*document.querySelectorAll('*').forEach(el => {
