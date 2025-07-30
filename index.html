@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habbit app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="panel">
+        <div class="sub__panel">
+          <p>JuniCoder</p>
+          <p>Habbits</p>
+          <img class="logo" src="./images/Logo.svg" alt="Logo">
+          <nav class="menu">
+            <div class="menu__list"></div>
+            <button class="menu__add" onclick="changePopupSatate()">
+              <img src="./images/plus.svg" alt="add">
+            </button>
+          </nav>
+        </div>
+        <button class="info">
+          <img src="./images/info.svg" alt="About the app">
+        </button>
+      </div>
+      <div class="content">
+        <header>
+          <div class="habbit__name-container">
+            <h1 class="h1">-</h1>
+            <button class="habbit__delete">
+                <img src="./images/trash.svg" alt="delete this day">
+            </button>
+          </div>  
+          <div class="progress">
+            <div class="progress__text">
+              <div class="progress__name">Progress</div>
+              <div class="progress__percent">%</div>
+            </div>
+            <div class="progress__bar">
+              <div class="progress__cover-bar"></div>
+            </div>
+          </div>
+        </header>
+        <main>
+          <div class="habbits__body"></div>
+        </main>
+        <footer><p>Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a></p></footer>
+      </div>
+      <div class="cover cover_hidden">
+        <div class="popup">
+          <h2>New habbit</h2>
+          <div class="icon-label">Choose Icon</div>
+          <div class="icon-select">
+            <button class="icon icon-active" name="sport" onclick="setIcon(this, 'sport')">
+              <img src="./images/dashboard.svg" alt="dashboard">
+            </button>
+            <button class="icon" name="water" onclick="setIcon(this, 'water')">
+              <img src="./images/fingerprint.svg" alt="fingerprint">
+            </button>
+            <button class="icon" name="food" onclick="setIcon(this, 'food')">
+              <img src="./images/bulb.svg" alt="Bulb">
+            </button>
+            <button class="icon" name="wi-fi" onclick="setIcon(this, 'food')">
+              <img src="./images/wifi-alt.svg" alt="Wi-fi">
+            </button>
+            <button class="icon" name="fork" onclick="setIcon(this, 'food')">
+              <img src="./images/code-fork.svg" alt="Fork">
+            </button>
+            <button class="popup__close" onclick="changePopupSatate()">
+              <img src="./images/close.svg" alt="Close">
+            </button>
+          </div>
+          <form class="popup__form" onsubmit="addHabbit(event)">
+            <input type="text" name="name" placeholder="Habbit name">
+            <input typw="text" name="icon" hidden placeholder="Icon" value="sport">
+            <input type="number" name="target" placeholder="Goal">
+            <button class="button" type="submit">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./scripts/app.js"></script>
+  </body>
+</html>

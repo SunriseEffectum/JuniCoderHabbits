@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "icon": "sport",
+        "name": "Anzhumanija",
+        "target": 10,
+        "days": [
+            {"comment": "Tjazhelo, no ok"},
+            {"comment": "Today legche"}
+        ]
+    },
+    {
+        "id": 2,
+        "icon": "food",
+        "name": "Correct pitanije",
+        "target": 20,
+        "days": [{"comment": "Cool!"}]
+    }
+]
