@@ -17,7 +17,6 @@ const page = {
 };
 
 /* utils */
-
 function loadData() {
   const habitsString = localStorage.getItem(HABIT_KEY);
   const habitsArray = JSON.parse(habitsString);
@@ -31,8 +30,31 @@ function saveData() {
   localStorage.setItem(HABIT_KEY, JSON.stringify(habits));
 }
 
-/* render */
+function getFormData(form, fields) {
+  const data = new FormData(form);
+  const formInfo = {};
 
+  for (const field of fields) {
+    form[field].classList.remove("error");
+    const info = data.get(field);
+
+    if (!info) {
+      form[field].classList.add("error");
+    }
+
+    formInfo[field] = info;
+  }
+
+  for (const field of fields) {
+    if (!formInfo[field]) {
+      return;
+    }
+  }
+
+  return formInfo;
+}
+
+/* render */
 function rerenderMenu(activeHabit) {
   document.querySelector(".menu__list").innerHTML = "";
 
@@ -107,26 +129,18 @@ function rerender(activeHabitId) {
 }
 
 /* days manipulation */
-
 function addDays(event) {
   const form = event.target;
   event.preventDefault();
-  const data = new FormData(form);
-  const comment = data.get("comment");
-  form["comment"].classList.remove("error");
+  const formValues = getFormData(form, ["comment"]);
 
-  if (!comment) {
-    form["comment"].classList.add("error");
-    return;
-  }
-
-  form["comment"].value = "";
+  if (!formValues) return;
 
   habits = habits.map((habit) => {
     if (habit.id === globalActiveHabitId) {
       return {
         ...habit,
-        days: habit.days.concat([{ comment }]),
+        days: habit.days.concat([formValues]),
       };
     }
     return habit;
@@ -153,7 +167,6 @@ function deleteDays(dayIndex) {
 }
 
 /* popup */
-
 function changePopupSatate() {
   if (page.popup.classList.contains("cover_hidden")) {
     page.popup.classList.remove("cover_hidden");
@@ -161,6 +174,10 @@ function changePopupSatate() {
   }
 
   page.popup.classList.add("cover_hidden");
+  page.popup.querySelector('form input[name="name"]').classList.remove("error");
+  page.popup.querySelector('form input[name="target"]').classList.remove("error");
+  page.popup.querySelector('form input[name="name"]').value = "";
+  page.popup.querySelector('form input[name="target"]').value = "";
 }
 
 function setIcon(context, icon) {
@@ -173,23 +190,17 @@ function setIcon(context, icon) {
 function addHabit(event) {
   const form = event.target;
   event.preventDefault();
-  const data = new FormData(form);
-  const name = data.get("name");
-  const target = data.get("target");
-  form["name"].classList.remove("error");
-  form["target"].classList.remove("error");
 
-  if (!name) {
-    form["name"].classList.add("error");
-    return;
-  }
+  const formValues = getFormData(form, ["name", "target"]);
+
+  if (!formValues) return;
 
   habits = habits.concat([
     {
       id: habits.length + 1,
       icon: document.querySelector(".icon.icon-active").name,
-      name: name,
-      target: Number(target),
+      name: formValues["name"],
+      target: Number(formValues["target"]),
       days: [],
     },
   ]);
@@ -200,7 +211,6 @@ function addHabit(event) {
 }
 
 /* init */
-
 (() => {
   loadData();
 
@@ -214,8 +224,4 @@ function addHabit(event) {
 
   if (urlHabit) rerender(urlHabit.id);
   else rerender(habits[0].id);
-
-  /*document.querySelectorAll('*').forEach(el => {
-    el.style.outline = '1px solid red';
-    });*/
 })();
