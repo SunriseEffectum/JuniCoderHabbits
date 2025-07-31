@@ -202,31 +202,13 @@ function addHabit(event) {
 /* init */
 
 (() => {
+  loadData();
+
   if (!localStorage.getItem(HABIT_KEY)) {
-    habits = [
-      {
-        id: 1,
-        icon: "dashboard",
-        name: "Blind typing",
-        target: 21,
-        days: [
-          { comment: "Not easy at all!" },
-          { comment: "Today much better, 8 letters)" },
-        ],
-      },
-      {
-        id: 2,
-        icon: "fingerprint",
-        name: "Blockchain basics",
-        target: 10,
-        days: [{ comment: "Cool!" }],
-      },
-    ];
-    console.log(habits);
-    saveData();
+    page.header.h1.innerHTML = "Create your first habbit!";
+    return;
   }
 
-  loadData();
   const hashId = Number(document.location.hash.replace("#", ""));
   const urlHabit = habits.find((habit) => habit.id == hashId);
 
