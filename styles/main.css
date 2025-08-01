@@ -14,8 +14,8 @@ body {
 
 .logo {
 	width: 10vh;
-	margin-top: 10px;
-	margin-bottom: 40px;
+	margin-top: 1.5vh;
+	margin-bottom: 5vh;
 	filter: invert(83%) sepia(16%) saturate(2480%) hue-rotate(130deg) brightness(67%) contrast(96%);
 }
 
@@ -39,7 +39,7 @@ body {
 	text-align: center;
 	font-weight: 900;
 	color:rgb(66, 66, 66);
-	font-size: large;
+	font-size: 2vh;
 }
 
 .sub__panel {
