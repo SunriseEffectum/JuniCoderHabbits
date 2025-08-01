@@ -191,6 +191,12 @@ function addHabit(event) {
   const form = event.target;
   event.preventDefault();
 
+  if (habits.length >= 5) {
+    changePopupSatate();
+    alert("Limit - you have maximum quantity of habits!");
+    return;
+  }
+
   const formValues = getFormData(form, ["name", "target"]);
 
   if (!formValues) return;
