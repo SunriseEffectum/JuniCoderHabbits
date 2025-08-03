@@ -86,6 +86,8 @@ function deleteHabbit() {
 
     page.body.innerHTML = "";
     page.menu.innerHTML = "";
+    page.header.progressCoverBar.setAttribute('style', 'width: 0%');
+    page.header.progressPercent.innerHTML = "0%";
 
     return;
   }
