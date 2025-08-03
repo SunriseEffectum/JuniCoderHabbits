@@ -17,6 +17,26 @@ const page = {
 };
 
 /* utils */
+function initCheck() {
+  if (!localStorage.getItem(HABIT_KEY)) {
+    page.header.h1.innerHTML = "Create your first habbit!";
+    document
+      .querySelector(".habit__delete")
+      .setAttribute("style", "display: none");
+    return false;
+  }
+
+  return true;
+}
+
+function resignId() {
+  let id = 1;
+
+  for (const habit of habits) {
+    habit.id = id++;
+  }
+}
+
 function loadData() {
   const habitsString = localStorage.getItem(HABIT_KEY);
   const habitsArray = JSON.parse(habitsString);
@@ -52,6 +72,29 @@ function getFormData(form, fields) {
   }
 
   return formInfo;
+}
+
+function deleteHabbit() {
+  habits.splice(globalActiveHabitId - 1, 1);
+  console.log(globalActiveHabitId);
+
+  if (habits.length < 1) {
+    console.log(globalActiveHabitId);
+    console.log(habits.length);
+    localStorage.removeItem(HABIT_KEY);
+    initCheck();
+
+    page.body.innerHTML = "";
+    page.menu.innerHTML = "";
+
+    return;
+  }
+
+  resignId();
+
+  globalActiveHabitId = 1;
+  saveData();
+  rerender(globalActiveHabitId);
 }
 
 /* render */
@@ -153,9 +196,9 @@ function addDays(event) {
 function deleteDays(dayIndex) {
   habits = habits.map((habit) => {
     if (habit.id === globalActiveHabitId) {
-      habit.days.splice(dayIndex, 1)
+      habit.days.splice(dayIndex, 1);
       return {
-        ...habit
+        ...habit,
       };
     }
 
@@ -175,7 +218,9 @@ function changePopupSatate() {
 
   page.popup.classList.add("cover_hidden");
   page.popup.querySelector('form input[name="name"]').classList.remove("error");
-  page.popup.querySelector('form input[name="target"]').classList.remove("error");
+  page.popup
+    .querySelector('form input[name="target"]')
+    .classList.remove("error");
   page.popup.querySelector('form input[name="name"]').value = "";
   page.popup.querySelector('form input[name="target"]').value = "";
 }
@@ -211,6 +256,7 @@ function addHabit(event) {
     },
   ]);
 
+  document.querySelector(".habit__delete").removeAttribute("style");
   saveData();
   changePopupSatate();
   rerender(habits.length);
@@ -220,8 +266,7 @@ function addHabit(event) {
 (() => {
   loadData();
 
-  if (!localStorage.getItem(HABIT_KEY)) {
-    page.header.h1.innerHTML = "Create your first habbit!";
+  if (!initCheck()) {
     return;
   }
 
