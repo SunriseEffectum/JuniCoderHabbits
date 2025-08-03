@@ -209,7 +209,17 @@ function deleteDays(dayIndex) {
   saveData();
 }
 
-/* popup */
+/* popup of info page*/
+function infoPopupStateChange() {
+  if (document.querySelector('.info_wrapper').classList.contains('cover_hidden')) {
+    document.querySelector('.info_wrapper').classList.remove('cover_hidden');
+    return;
+  }
+
+  document.querySelector('.info_wrapper').classList.add('cover_hidden');
+}
+
+/* popup of adding habbit*/
 function changePopupSatate() {
   if (page.popup.classList.contains("cover_hidden")) {
     page.popup.classList.remove("cover_hidden");

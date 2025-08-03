@@ -130,15 +130,43 @@ body {
 	filter: invert(83%) sepia(6%) saturate(2480%) hue-rotate(130deg) brightness(27%) contrast(96%);
 }
 
+.info_wrapper {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.25);
+}
+
 .info {
 	background: none;
 	border: none;
-	box-shadow: 0px 8px 14px rgba(40, 213, 248, 0.3);
 	border-radius: 10px;
 	height: 3vh;
 	width: 3vh;	
 	padding: 0;
 	cursor: pointer;
+}
+
+.info_popup {
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	min-width: 40vw;
+	min-height: 40vh;
+  background: white;
+}
+
+.info_popup p {
+	max-width: 35vw;
+	text-align: justify;
 }
 
 .info img {

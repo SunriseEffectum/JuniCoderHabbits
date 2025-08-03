@@ -24,7 +24,7 @@
             </button>
           </nav>
         </div>
-        <button class="info">
+        <button class="info" onclick="infoPopupStateChange()">
           <img src="./images/info.svg" alt="About the app">
         </button>
       </div>
@@ -50,6 +50,23 @@
           <div class="habits__body"></div>
         </main>
         <footer><p>Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a></p></footer>
+      </div>
+      <div class="info_wrapper cover_hidden">
+        <div class="info_popup">
+          <h1>About the app</h1>
+          <p>
+            This project is a habit tracker — specifically, a tracker styled for the habits of a beginner programmer, 
+            i.e., a junior developer. However, naturally, it can also be used to track other habits, 
+            such as health, studying, and so on. 
+          </p>
+          <p>
+            All the icons were taken from free online icon librarie <a href="https://www.flaticon.com/uicons">Flaticon</a>
+             — huge thanks to their creators!
+          </p>
+          <button class="popup__close" onclick="infoPopupStateChange()">
+            <img src="./images/close.svg" alt="Close">
+          </button>
+        </div>
       </div>
       <div class="cover cover_hidden">
         <div class="popup">
