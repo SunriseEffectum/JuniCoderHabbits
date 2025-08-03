@@ -1,19 +1,24 @@
 [
     {
         "id": 1,
-        "icon": "sport",
-        "name": "Anzhumanija",
-        "target": 10,
+        "icon": "wi-fi",
+        "name": "Software Defined Networks",
+        "target": 14,
         "days": [
-            {"comment": "Tjazhelo, no ok"},
-            {"comment": "Today legche"}
+            {"comment": "SDN decouples the control plane from the data plane — sounds simple, but it changes everything."},
+            {"comment": "Getting into SDN really changes how you think about network architecture!"}
         ]
     },
     {
         "id": 2,
-        "icon": "food",
-        "name": "Correct pitanije",
-        "target": 20,
-        "days": [{"comment": "Cool!"}]
+        "icon": "fork",
+        "name": "GIT Basics",
+        "target": 10,
+        "days": [
+            {"comment": "Learning Git is like learning to time travel!)"},
+            {"comment": "Git is not just a tool — it’s a survival skill for developers."},
+            {"comment": "Every mistake I make in Git teaches me something new — and sometimes painful."},
+            {"comment": "Git log: a beautiful mess of every late-night idea I had."}
+        ]
     }
 ]
