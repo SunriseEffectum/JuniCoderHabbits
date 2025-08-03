@@ -1,4 +1,4 @@
-# JuniCoder Habits V.1.0.0
+# JuniCoder Habits V1.0.0
 
 ## Description
 
