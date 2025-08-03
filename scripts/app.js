@@ -86,7 +86,7 @@ function deleteHabbit() {
 
     page.body.innerHTML = "";
     page.menu.innerHTML = "";
-    page.header.progressCoverBar.setAttribute('style', 'width: 0%');
+    page.header.progressCoverBar.setAttribute("style", "width: 0%");
     page.header.progressPercent.innerHTML = "0%";
 
     return;
@@ -120,8 +120,10 @@ function rerenderMenu(activeHabit) {
 
 function rerenderHead(activeHabit) {
   page.header.h1.innerText = activeHabit.name;
+
   const progressNum = activeHabit.days.length / activeHabit.target;
   const progress = progressNum > 1 ? 100 : progressNum * 100;
+
   page.header.progressPercent.innerText = progress.toFixed(0) + "%";
   page.header.progressCoverBar.setAttribute("style", `width: ${progress}%`);
 }
@@ -213,12 +215,14 @@ function deleteDays(dayIndex) {
 
 /* popup of info page*/
 function infoPopupStateChange() {
-  if (document.querySelector('.info_wrapper').classList.contains('cover_hidden')) {
-    document.querySelector('.info_wrapper').classList.remove('cover_hidden');
+  if (
+    document.querySelector(".info_wrapper").classList.contains("cover_hidden")
+  ) {
+    document.querySelector(".info_wrapper").classList.remove("cover_hidden");
     return;
   }
 
-  document.querySelector('.info_wrapper').classList.add('cover_hidden');
+  document.querySelector(".info_wrapper").classList.add("cover_hidden");
 }
 
 /* popup of adding habbit*/
