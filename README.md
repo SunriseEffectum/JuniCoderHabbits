@@ -11,6 +11,7 @@ The project is a simple pet project — all data is stored in *localStorage*, an
  - Track daily up to 5 habits;
  - Store user data in localStorage;
  - Clean, minimal UI.
+ - Icons from online icon librarie [Flaticon](https://www.flaticon.com/uicons/interface-icons)
 
 ### Installation
 
@@ -19,7 +20,7 @@ The project is a simple pet project — all data is stored in *localStorage*, an
 ### Structure
 
 ```plaintext
-/data       → Reference of data structure saved in localStorage 
+/data       → Reference of the JSON data structure stored in localStorage 
 /images     → Icons 
 /scripts    → JavaScript logic
 /styles     → Stylesheet
